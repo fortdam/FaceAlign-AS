@@ -1,6 +1,6 @@
 package com.tangzm.facedetect;
 
-import org.ejml.simple.SimpleMatrix;
+//import org.ejml.simple.SimpleMatrix;
 
 import android.content.Context;
 import android.renderscript.Allocation;
@@ -514,32 +514,32 @@ public class QMatrix {
 		}
 	}
 	
-	public boolean verify(SimpleMatrix ref){
-		final float EPSILON = 0.001f;
-		
-		if (ref.numCols() != mColumns || ref.numRows() != mRows){
-			Log.i(TAG, "Ref:"+ref.numRows()+"*"+ref.numCols()+" QMatrix:"+mRows+"*"+mColumns);
-			return false;
-		}
-		
-		if (Float.isNaN(mData[0]) || Math.abs(ref.get(0, 0)-mData[0]) > EPSILON) {
-			Log.i(TAG, "Ref[0,0]:"+ref.get(0, 0)+" QMatrix[0,0]:"+mData[0]);
-			return false;
-		}
-
-		if (Float.isNaN(mData[mRows*mColumns-1]) || Math.abs(ref.get(mRows-1, mColumns-1) - mData[mRows*mColumns-1]) > EPSILON) {
-			Log.i(TAG, "Ref[end,end]:"+ref.get(mRows-1, mColumns-1)+" QMatrix[end,end]:"+mData[mRows*mColumns-1]);
-			return false;
-		}
-
-		if (Float.isNaN(mData[(mRows/2)*mColumns+mColumns/2]) || Math.abs(ref.get(mRows/2, mColumns/2) - mData[(mRows/2)*mColumns+mColumns/2]) > EPSILON) {
-			Log.i(TAG, "Ref[mid,mid]:"+ref.get(mRows/2, mColumns/2)+" QMatrix[mid,mid]:"+mData[(mRows/2)*mColumns+mColumns/2]);
-			return false;
-		}
-		
-		Log.i(TAG, "Verified Same!");
-		return true;
-	}
+//	public boolean verify(SimpleMatrix ref){
+//		final float EPSILON = 0.001f;
+//
+//		if (ref.numCols() != mColumns || ref.numRows() != mRows){
+//			Log.i(TAG, "Ref:"+ref.numRows()+"*"+ref.numCols()+" QMatrix:"+mRows+"*"+mColumns);
+//			return false;
+//		}
+//
+//		if (Float.isNaN(mData[0]) || Math.abs(ref.get(0, 0)-mData[0]) > EPSILON) {
+//			Log.i(TAG, "Ref[0,0]:"+ref.get(0, 0)+" QMatrix[0,0]:"+mData[0]);
+//			return false;
+//		}
+//
+//		if (Float.isNaN(mData[mRows*mColumns-1]) || Math.abs(ref.get(mRows-1, mColumns-1) - mData[mRows*mColumns-1]) > EPSILON) {
+//			Log.i(TAG, "Ref[end,end]:"+ref.get(mRows-1, mColumns-1)+" QMatrix[end,end]:"+mData[mRows*mColumns-1]);
+//			return false;
+//		}
+//
+//		if (Float.isNaN(mData[(mRows/2)*mColumns+mColumns/2]) || Math.abs(ref.get(mRows/2, mColumns/2) - mData[(mRows/2)*mColumns+mColumns/2]) > EPSILON) {
+//			Log.i(TAG, "Ref[mid,mid]:"+ref.get(mRows/2, mColumns/2)+" QMatrix[mid,mid]:"+mData[(mRows/2)*mColumns+mColumns/2]);
+//			return false;
+//		}
+//
+//		Log.i(TAG, "Verified Same!");
+//		return true;
+//	}
 	
 	public void printOut(){
 		Log.i(TAG, "-----------------Matrix print out--------------------");
